@@ -23,7 +23,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "TMDB_API_KEY", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzMzYjM1OTUzZGIzMDExNmVmYjk3MTQyOTNkM2I3NyIsIm5iZiI6MTc0OTAyMzMwOS42NjcsInN1YiI6IjY4M2ZmYTRkNDZkNTc0ZmJjNDdmNGVjZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.y05yzeFCg5ApKwBaD4z2G_n9M4i0YZx1N40D0ah6Ixo\"")
+            isMinifyEnabled = false
+        }
         release {
+            buildConfigField("String", "TMDB_API_KEY", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzMzYjM1OTUzZGIzMDExNmVmYjk3MTQyOTNkM2I3NyIsIm5iZiI6MTc0OTAyMzMwOS42NjcsInN1YiI6IjY4M2ZmYTRkNDZkNTc0ZmJjNDdmNGVjZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.y05yzeFCg5ApKwBaD4z2G_n9M4i0YZx1N40D0ah6Ixo\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -40,6 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"

@@ -1,4 +1,4 @@
-package id.testing.simpleapps.ui.screens
+package id.testing.simpleapps.ui.screens.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

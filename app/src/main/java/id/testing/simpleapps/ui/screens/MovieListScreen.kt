@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -26,6 +27,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import id.testing.simpleapps.ui.screens.components.MovieItem
+import id.testing.simpleapps.ui.screens.components.RoundedOutlinedTextField
 import id.testing.simpleapps.ui.viewmodels.MovieListViewModel
 import id.testing.simpleapps.ui.viewmodels.MovieListViewModelFactory
 
@@ -46,14 +49,12 @@ fun MovieListScreen(
     Column(modifier = Modifier.fillMaxSize()) {
         Spacer(modifier = Modifier.height(32.dp))
         // Search Bar
-        OutlinedTextField(
+        RoundedOutlinedTextField(
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
             value = searchQuery,
             onValueChange = viewModel::updateSearchQuery,
-            label = { Text("Search movies...") },
-            leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
+            placeholder = "Search movies...",
+            leadingIcon = { Icon(Icons.Outlined.Search, contentDescription = null) },
         )
 
         // Loading indicator

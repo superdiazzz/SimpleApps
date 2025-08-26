@@ -13,9 +13,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import id.testing.simpleapps.ui.screens.MovieDetailScreen
 import id.testing.simpleapps.ui.screens.MovieListScreen
 import id.testing.simpleapps.ui.theme.SimpleAppsTheme
 
@@ -53,16 +56,16 @@ fun SimpleApp() {
             )
         }
 
-//        composable(
-//            "movie_detail/{movieId}",
-//            arguments = listOf(navArgument("movieId") { type = NavType.IntType })
-//        ) { backStackEntry ->
-//            val movieId = backStackEntry.arguments?.getInt("movieId") ?: 0
-//            MovieDetailScreen(
-//                movieId = movieId,
-//                onBackClick = { navController.popBackStack() }
-//            )
-//        }
+        composable(
+            "movie_detail/{movieId}",
+            arguments = listOf(navArgument("movieId") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val movieId = backStackEntry.arguments?.getInt("movieId") ?: 0
+            MovieDetailScreen(
+                movieId = movieId,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
     }
 
 
